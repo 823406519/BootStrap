@@ -6,7 +6,10 @@
 
 #### [⬆ Back to top][0.0]
 
-823406519.github.io/Bootstrap/Appendix/
+https://823406519.github.io/Bootstrap/Appendix/
 
+See rendering result
+
+See source code
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
