@@ -8,7 +8,6 @@
 [2]: ../4Utilities/70000Flex.md
 [3]: ../4Utilities/E0000Spacing.md
 [4]: ../4Utilities/H0000Visibility.md
-#### [⬆ Back to top][0.0]
 
 # Utilities for Layout
 1. [Display utilities][1.0]
