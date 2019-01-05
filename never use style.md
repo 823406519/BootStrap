@@ -22,3 +22,8 @@ The clip CSS property defines what portion of an element is visible. The clip pr
 * auto: this is the default behavior. Setting clip to auto is the same thing as not using clip at all.
 * inherit: well, it inherits the clip value from its parent.
 * a shape function. Currently only rect() exists, `clip: rect(<top>, <right>, <bottom>, <left>)`. Both the top and the bottom values define the offset from the top border and the left and right values define the offset from the left border
+
+## orphans & windows
+orphans 属性设置或返回一个元素必须在页面底部的可见行的最小数量（用于打印或打印预览），orphans:5 意味着至少有 5 行必须在分页符上面可见。
+
+windows 属性设置或返回一个元素必须在页面顶部的可见行的最小数量（用于打印或打印预览）

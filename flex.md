@@ -6,6 +6,29 @@ flex basis is ( flex: $grow, $shrink, $size ) and is set to ( flex: 0 1 auto ) b
 
  obey(遵守) any min / max - width or height settings
 
+## flex
+```CSS
+flex: <flex-grow> <flex-shrink> <flex-basics>
+/* flex-shrink and flex-basis) are optional */
+
+/* defualt value */
+flex: 0 1 auto;
+flex: 0 auto;
+flex: initial;
+/* It makes the flex item inflexible when there is some free space left, 
+ * but allows it to shrink to its minimum when there is not enough space
+ */
+
+----------
+flex: auto;
+flex: 1 1 auto
+/* makes it fully flexible so that they absorb any extra space along the main axis */
+
+-----------------
+flex: none;
+flex: 0 0 auto
+
+```
 ## flex-flow
 flex-flow: <flex-direction> <flex-wrap>
 
