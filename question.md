@@ -1,0 +1,1 @@
+background: transparent no-repeat center center;

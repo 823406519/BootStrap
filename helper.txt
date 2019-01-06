@@ -28,3 +28,5 @@ $('#horizontal-alignment').change(
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 
 https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+
+https://raw.githubusercontent.com/823406519/Bootstrap/master/Appendix/Images/logo1.png

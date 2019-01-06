@@ -27,3 +27,26 @@ The clip CSS property defines what portion of an element is visible. The clip pr
 orphans 属性设置或返回一个元素必须在页面底部的可见行的最小数量（用于打印或打印预览），orphans:5 意味着至少有 5 行必须在分页符上面可见。
 
 windows 属性设置或返回一个元素必须在页面顶部的可见行的最小数量（用于打印或打印预览）
+
+## backface-visibility
+backface-visibility: visible | hidden;
+
+定义义当元素不面向屏幕时是否可见，visible是当元素背面是可见的，hidden是当元素背面不可见。在旋转元素不希望看到其背面时，该属性很有用。
+
+
+## transform
+
+transforn: translate(100%);
+
+在CSS3中，所有变形方法都是属于transform属性
+
+* translateX(x)：元素仅在水平方向移动（X轴移动）
+* translateY(y)：元素仅在垂直方向移动（Y轴移动）
+* transklate(x,y)：元素在水平方向和垂直方向同时移动（X轴和Y轴同时移动）
+
+
+## text-indent
+text-indent: -999px;
+sets the length of empty space (indentation) that is put before lines of text in a block. Horizontal spacing is with respect to the left (or right, for right-to-left layout) edge of the containing block-level element's content box.
+
+就是把该元素内的文字移到屏幕外面去，让我们肉眼看不见,搜索引擎或者盲人用的软件能知道
