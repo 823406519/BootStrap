@@ -155,14 +155,30 @@ See source code [button-gruop.html][02]
 
 
 ## split button dropdowns
+* `.dropdown-toggle-split` set `padding`
+
+* `.dropdown-toggle-split::after`, `.drop-up .dropdown-toggle-split::after`, `.dropright .dropdown-toggle-split::after` set `margin-left: 0` so that override `.dropdown-toggle::after` 's margin setting.
+
+* `.dropleft .dropdown-toggle-split::before` set `margin-right: 0` so that override `.dropdown-toggle::after` 's margin setting.
+
+* `.btn-sm + .dropdown-toggle-split` set `padding`
+
+* `.btn-lg + .dropdown-toggle-split` set `padding`
+
+* `.btn-group.show .dropdown-toggle` set `box-shadow`(`$enable-shadow: false`)
+
+* `.btn-group.show .dropdown-toggle.btn-link` set `box-shadow` to none(`$enable-shadow: false`)
+
+* `.btn-group-toggle > .btn`, `.btn-group-toggle > .btn-group > .btn` set margin-bottom: 0 so that override defualt `<label>` value
+
+* `.btn-group-toggle > .btn input[type="radio"]`, `.btn-group-toggle > .btn-group > .btn input[type="checkbox"]` set `position: absolute`, `clip`, `pointer-events: none`
+
 ```SCSS
 .dropdown-toggle-split {
-  padding-right: $btn-padding-x * .75;
-  padding-left: $btn-padding-x * .75;
+  padding-right: $btn-padding-x * .75; //.75rem * .75
+  padding-left: $btn-padding-x * .75; // .75rem * .75
 
-  &::after,
-  .dropup &::after,
-  .dropright &::after {
+  &::after, .dropup &::after, .dropright &::after {
     margin-left: 0;
   }
 
@@ -172,19 +188,21 @@ See source code [button-gruop.html][02]
 }
 
 .btn-sm + .dropdown-toggle-split {
-  padding-right: $btn-padding-x-sm * .75;
+  padding-right: $btn-padding-x-sm * .75; // .5rem * .75
   padding-left: $btn-padding-x-sm * .75;
 }
 
 .btn-lg + .dropdown-toggle-split {
-  padding-right: $btn-padding-x-lg * .75;
+  padding-right: $btn-padding-x-lg * .75; // 1rem * .75
   padding-left: $btn-padding-x-lg * .75;
 }
 
-
-// The clickable button for toggling the menu
-// Set the same inset shadow as the :active state
+/* The clickable button for toggling the menu
+ * Set the same inset shadow as the :active state
+ */
 .btn-group.show .dropdown-toggle {
+  // inset 0 3px 5px rgba($black, .125)
+  // $enable-shadow: false
   @include box-shadow($btn-active-box-shadow);
 
   // Show no shadow for `.btn-link` since it has no other button styles.
@@ -192,7 +210,6 @@ See source code [button-gruop.html][02]
     @include box-shadow(none);
   }
 }
-
 
 // Checkbox and radio options
 /* In order to support the browser's form validation feedback, powered by the
@@ -218,6 +235,19 @@ See source code [button-gruop.html][02]
     }
   }
 }
+
+--------------
+// variabsles
+$btn-padding-x:               $input-btn-padding-x !default;
+$input-btn-padding-x:         .75rem !default;
+
+$btn-padding-x-sm:            $input-btn-padding-x-sm !default;
+$input-btn-padding-x-sm:      .5rem !default;
+
+$btn-padding-x-lg:            $input-btn-padding-x-lg !default;
+$input-btn-padding-x-lg:      1rem !default;
+
+$btn-active-box-shadow:       inset 0 3px 5px rgba($black, .125) !default;
 ```
 #### [⬆ Back to top][0.0]
 

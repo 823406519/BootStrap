@@ -38,42 +38,6 @@ input[type="button"] {
   margin-left: -$card-spacer-x / 2;
 }
 
-
-//
-// Accordion
-//
-
-.accordion {
-  .card {
-    overflow: hidden;
-
-    &:not(:first-of-type) {
-      .card-header:first-child {
-        border-radius: 0;
-      }
-
-      &:not(:last-of-type) {
-        border-bottom: 0;
-        border-radius: 0;
-      }
-    }
-
-    &:first-of-type {
-      border-bottom: 0;
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-
-    &:last-of-type {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-    }
-
-    .card-header {
-      margin-bottom: -$card-border-width;
-    }
-  }
-}
 ```
 
 ## carousel
@@ -85,31 +49,79 @@ input[type="button"] {
   touch-action: pan-y;
 }
 
+```
 
-
-//
-// Alternate transitions
-//
-
-.carousel-fade {
-  .carousel-item {
-    opacity: 0;
-    transition-property: opacity;
-    transform: none;
-  }
-
-  .carousel-item.active,
-  .carousel-item-next.carousel-item-left,
-  .carousel-item-prev.carousel-item-right {
-    z-index: 1;
-    opacity: 1;
-  }
-
-  .active.carousel-item-left,
-  .active.carousel-item-right {
-    z-index: 0;
-    opacity: 0;
-    @include transition(0s $carousel-transition-duration opacity);
+## dropdown
+```SCSS
+// When enabled Popper.js, reset basic dropdown position
+// stylelint-disable-next-line no-duplicate-selectors
+.dropdown-menu {
+  &[x-placement^="top"],
+  &[x-placement^="right"],
+  &[x-placement^="bottom"],
+  &[x-placement^="left"] {
+    right: auto;
+    bottom: auto;
   }
 }
+```
+
+## form
+```SCSS
+select.form-control {
+  &:focus::-ms-value {
+    // Suppress the nested default white text on blue background highlight given to
+    // the selected option text when the (still closed) <select> receives focus
+    // in IE and (under certain conditions) Edge, as it looks bad and cannot be made to
+    // match the appearance of the native widget.
+    // See https://github.com/twbs/bootstrap/issues/19398.
+    color: $input-color;
+    background-color: $input-bg;
+  }
+}
+
+```
+
+## list group
+* list group with `.tab-content`, the content of `nav`
+* the javascript in list group 
+
+
+## modal
+```SCSS
+.modal-open {
+  // Kill the scroll on the body
+  overflow: hidden;
+
+  .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+// Modal background
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $zindex-modal-backdrop;
+  width: 100vw;
+  height: 100vh;
+  background-color: $modal-backdrop-bg;
+
+  // Fade for backdrop
+  &.fade { opacity: 0; }
+  &.show { opacity: $modal-backdrop-opacity; }
+}
+
+
+// Measure scrollbar width for padding body during modal show/hide
+.modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
 ```

@@ -50,3 +50,16 @@ text-indent: -999px;
 sets the length of empty space (indentation) that is put before lines of text in a block. Horizontal spacing is with respect to the left (or right, for right-to-left layout) edge of the containing block-level element's content box.
 
 就是把该元素内的文字移到屏幕外面去，让我们肉眼看不见,搜索引擎或者盲人用的软件能知道
+
+## appearance
+所有主流浏览器都不支持 appearance 属性。
+
+Firefox 支持替代的 -moz-appearance 属性。
+
+Safari 和 Chrome 支持替代的 -webkit-appearance 属性。
+
+appearance: normal|icon|window|button|menu|field;
+
+
+## tabindex
+A tabindex="-1" value removes the element from the default navigation flow and also allows it to receive programmatic focus. This means focus can be set to it from a link, or with scripting. This may be useful for elements that should not be navigated to, but need to have focus set to them.

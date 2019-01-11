@@ -5,59 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-        ul{
-            list-style: none;
-            padding-left: 0;
-        }
-    </style>
 </head>
 <body>
-        <!DOCTYPE html>
-        <html>
-        <head> 
-        <meta charset="utf-8"> 
-        <title>菜鸟教程(runoob.com)</title> 
-        <script>
-        function ChangeOrphans(){
-            document.getElementById("p1").style.orphans=document.getElementById("orphans").value;
-        }
-        </script>
-        <style>
-        .othercontent{
-            width:400px;
-            border-top:19cm solid #c3c3c3;
-        }
-        @page{
-            /* 设置打印页面大小 */
-            size:21cm 27cm;
-            margin-top:2cm;
-        }
-        @media print{
-            .orphans{
-                orphans: 1;
-            }
-        }
-        </style>
-        </head>
-        
-        <body>
-        <div class="othercontent">
-        <input id="orphans" value="2"/>
-        <button onclick="ChangeOrphans();">修改orphans属性</button>
-        <p style="font-size:120%" id="p1">
-        修改打印或打印预览的orphans属性。<br>
-        Line 2<br>
-        Line 3<br>
-        Line 4<br>
-        Line 5<br>
-        Line 6<br>
-        Line 7<br>
-        Line 8<br>
-        </p>
-        </div>
-            
-        </body>
-        </html>
+    <ul>
+        <li style="display: block">hello</li>
+    </ul>
 </body>
 </html>

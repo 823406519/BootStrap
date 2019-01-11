@@ -8,8 +8,8 @@
 [7.0]: #JavaScript-method
 [8.0]: #JavaScript-events
 
-[1]: https://823406519.github.io/Bootstrap/Appendix/
-[2]:
+[1]: https://823406519.github.io/Bootstrap/Appendix/3Components-6-Carousel.html
+[2]: ../Appendix/3Components-6-Carousel.html
 # Carousel
 See rendering result [carousel.html][1]
 
@@ -28,7 +28,11 @@ A slideshow component for cycling through elements—images or slides of text, b
 
 # basic carousel
 * Firstly, use `.carousel`, it set `position: relative`
-*  add `slide` to element that use `.carousel`, or use `.carousel-fade` instead of a slide.
+
+* Add a `id` attribute to `.carousel` element so that the carousel control and indicators can work.
+
+* Add `slide` to element that use `.carousel`, or use `.carousel-fade` instead of a slide.
+
 * `carousel-inner` set `position-relative`, `width: 100%`, `overflow: hidden` and set mixin `clearfix()`
 ```SCSS
 .carousel {
@@ -54,7 +58,12 @@ A slideshow component for cycling through elements—images or slides of text, b
 #### [⬆ Back to top][0.0]
 
 
+
 ## carousel item
+**:exclamation: Note:** `<img>`  in `.carousel-item` element should set `d-block w-100` to prevent browser default image alignment.
+
+* Firstly, set `.carousel`, later `.carousel-inner`
+
 * `.carousel-item` set `positon: relative`, `display: nooe`, `float: left`, `width: 100%`, `margin-right: 100%`, `backface-visibility: hidden`
 
 * Add `data-interval=""` to `.carousel-item` element in order to change the amount of time to delay between cycling to next item. The unit is millisecond.
@@ -104,6 +113,9 @@ $carousel-transition-duration:       .6s !default;
 
 
 ## carousel previous and next control
+
+:exclamation:Note: Add `carousel-control-prev`,  `carousel-control-next`to `<a>` element, and the `href` attribute value of `<a>` is `.carousel` element id 
+
 * `carousel-control-prev`, `carousel-control-next` set `postion: absolute`, `top: 0`, `bottom: 0`, `z-index: 1`, `display: flex`, `align-items: center`, `justify-content: center`, `width`, `color`, `text-align`, `opacity`, `transitioin`
 
 * `.carousel-control-prev` add `.data-slide="prev"` which alters the slide position relative to its current position, `.carsel-control-next` add `.data-slide="next` which alters the slide position relative to its current position.
@@ -162,6 +174,8 @@ $carousel-control-hover-opacity:     .9 !default;
 
 
 ## carousel previous and next control icon
+**:exclamation:Note:**: add `.carousel-control-prev-icon`, `.carousel-contrl-next-icon` to span, and  set attribute `role="button" aria-hidden=true` to assitant screen reader device.
+
 * `.carousel-control-prev-icon`, `.carousel-contrl-next-icon` set `display: inline-block`, `width`, `height`, `background`, `background-size`
 
 * `.carouel-control-prev-icon` set `background-image`
@@ -193,6 +207,8 @@ $carousel-control-next-icon-bg:      str-replace(url(...);
 
 
 ## carousel indicator
+**:exclamation: Note:** Every `<li>` in `<ol>` set attribute `data-target= #carousel-id` and `data-ride-to:<integer>`
+
 * Always set `<ol>` to `.carousel-indicators`, set `position: abousute`, `right bottom left` to 0, `z-index: 15`, `display: flex`, `justify-content` `padding-left: 0`(override default `<ol>` style), `listy-style: none`
 
 * Add `data-slide-to: <index>`, shifts the slide position to a particular index beginning with 0
@@ -280,6 +296,57 @@ $carousel-caption-color:             $white !default;
 $carousel-caption-width:             70% !default;
 ```
 #### [⬆ Back to top][0.0]
+
+## carousel fade
+* `.carousel-fade` set to repaled `slide` in `.carousel` element
+
+* `carousel-fade .carousel-item` set `opacity=0`, set `transition-property: opacity`, `transform: none`
+
+* `.carousel-fade .carousel-item.active`, `.carousel-fade .carousel-item-next.carousel-item-left`, `.carousel-fade .carousel-item-prev.carousel-item-right` set `index：1`, `opacity: 1`
+
+* `.carousel-fade .active.carousel-item-left`, `.carousel-fade .active.carousel-item-right` set `opacity: 1`, `z-index: 0`, `transition`
+```SCSS
+.carousel-fade {
+  .carousel-item {
+    opacity: 0;
+    transition-property: opacity;
+    transform: none;
+  }
+
+  .carousel-item.active,
+  .carousel-item-next.carousel-item-left,
+  .carousel-item-prev.carousel-item-right {
+    z-index: 1;
+    opacity: 1;
+  }
+
+  .active.carousel-item-left,
+  .active.carousel-item-right {
+    z-index: 0;
+    opacity: 0;
+
+    // 0s .6s opacity
+    @include transition(0s $carousel-transition-duration opacity);
+  }
+}
+// mixin transition
+@mixin transition($transition...) {
+  @if $enable-transitions {
+    @if length($transition) == 0 {
+      transition: $transition-base;
+    } @else {
+      transition: $transition;
+    }
+  }
+
+  @if $enable-prefers-reduced-motion-media-query {
+    @media screen and (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
+  }
+}
+```
+
 
 
 
