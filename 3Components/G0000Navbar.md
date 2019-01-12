@@ -1,13 +1,28 @@
-[0.0]: #
-[1.0]: #
-[2.0]: #
-[3.0]: #
-[4.0]: #
+[0.0]: #Navbar
+[1.0]: #basic-navbar
+[2.0]: #navbar-light-backgruond
+[3.0]: #navbar-dark-backgruond
+[4.0]: #navbar-brand
+[5.0]: #navbar-nav
+[6.0]: #navbar-text
+[7.0]: #responsive-navbar
+[7.1]: #navbar-expand
+[7.2]: #navbar-toggler-and-icon
+[7.3]: #navbar-collapse
 
-https://823406519.github.io/Bootstrap/Appendix/
 
-[01]: https://823406519.github.io/Bootstrap/Appendix/
-[02]: 
+[01]: https://823406519.github.io/Bootstrap/Appendix/3Components-F-Navbar.html
+[02]: ../Appendix/3Components-F-Navbar.html
+
+* In `<nav>`, use `.navbar`. The light background add `.navbar-light bg-*`, the dark backgrond add `.navbar-dark bg-*`. Responsive layout, add `.narbar-expand*`
+
+* Logo, in `<a>`, use `.navbar-brand`
+
+* For `<button>`, use `.navbar-toggler`, add attribute `data-toggle="collpase" data-target="#...`, for assist screen reader, add attribute `aria-happen="false", aria-conatrols="...` and so on. `<span>` in `<button>`, use `.navbar-toggler-icon`
+
+* collpase nav, in `<div>`, use `.collapse .navbar-collapse`, set id attribute.
+
+* in navbar-nav, use `.nav` in `<nav>`, for nav-item, use `.nav-link` in `<a>`
 
 
 # Navbar
@@ -16,6 +31,17 @@ Navbar support for branding, navigation, and more, including support for our col
 See rendering result [navbar.html][01]
 
 See source code [navbar.html][02]
+
+1. [basic navbar][1.0]
+2. [navbar light backgruond][2.0]
+3. [navbar dark backgruond][3.0]
+4. [navbar brand][4.0]
+5. [navbar nav][5.0]
+6. [navbar text][6.0]
+7. [responsive navbar][7.0]
+    * [navbar expand][7.1]
+    * [navbar toggler and icon][7.2]
+    * [navbar-collapse][7.3]
 ## basic navbar
 * `.navbar`
 
@@ -120,7 +146,7 @@ See source code [navbar.html][02]
 #### [⬆ Back to top][0.0]
 
 
-## navbar light backgruond
+## navbar dark backgruond
 * `.navbar-dark`
 
 * `.navbar-dark .navbar-brand`
@@ -192,6 +218,8 @@ See source code [navbar.html][02]
   }
 }
 ```
+#### [⬆ Back to top][0.0]
+
 
 ## navbar brand
 `.navbar-brand`  for your company, product, or project name
@@ -221,7 +249,7 @@ See source code [navbar.html][02]
 #### [⬆ Back to top][0.0]
 
 
-## navbar-nav
+## navbar nav
 `.navbar-nav` support a full-height and lightweight navigation (including support for dropdowns)
 
 * `.navbar-nav` 
@@ -269,14 +297,15 @@ See source code [navbar.html][02]
 Navbars can utilize `.navbar-toggler`, `.navbar-collapse`, and `.navbar-expand{-sm|-md|-lg|-xl}` classes to change when their content collapses behind a button
 
 For navbars that never collapse, add the `.navbar-expand` class on the navbar.
-### navbar exapnd
-* $next: xs->sm, sm->md, xl->""
-    $infix: "", -sm, ...
+### navbar expand
+* `$next: xs->sm, sm->md, xl->""`
+  
+   ` $infix: "", -sm, ...`
 
-* @media(max-width: $max)
+* `@media(max-width: $max)`
     * `.nav-expand* > .container`, `.nav-expand*> .container-fluid` 
 
-* @media(min-width: $min[$next]){...}
+* `@media(min-width: $min[$next]){...}`
     * `.nav-expand*`
     * `.nav-expand* .navbar-nav`
         * `.nav-expand .navbar-nav .navbar-nav`
